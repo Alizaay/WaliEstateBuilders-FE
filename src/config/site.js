@@ -19,6 +19,13 @@ export const SITE_URL = (import.meta.env.VITE_SITE_URL || '').replace(/\/$/, '')
 
 export const API_URL = (import.meta.env.VITE_API_URL || '/api').replace(/\/$/, '');
 
+/**
+ * Frontend-only mode: use local sample data, no backend required.
+ * Set VITE_USE_MOCK_DATA=false and VITE_API_URL when the API is ready.
+ */
+export const USE_MOCK_DATA =
+  String(import.meta.env.VITE_USE_MOCK_DATA ?? 'true').toLowerCase() !== 'false';
+
 export const SOCIAL = {
   facebook: import.meta.env.VITE_SOCIAL_FACEBOOK || '',
   instagram: import.meta.env.VITE_SOCIAL_INSTAGRAM || '',

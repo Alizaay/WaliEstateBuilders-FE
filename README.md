@@ -23,10 +23,21 @@ npm install
 cp .env.example .env
 ```
 
-Edit `.env` and set `VITE_API_URL` to your backend API base URL:
+### Frontend-only (default)
+
+No backend needed. Sample listings and WhatsApp-based inquiry forms work out of the box:
 
 ```
-VITE_API_URL=http://localhost:5000/api
+VITE_USE_MOCK_DATA=true
+VITE_SITE_URL=https://your-app.vercel.app
+```
+
+### When the backend is ready
+
+```
+VITE_USE_MOCK_DATA=false
+VITE_API_URL=https://your-api.com/api
+VITE_SITE_URL=https://your-app.vercel.app
 ```
 
 ## Development
@@ -69,12 +80,17 @@ This repo includes `vercel.json` for Vite + React Router.
 1. Import the GitHub repo in [Vercel](https://vercel.com).
 2. Framework preset: **Vite** (or leave auto-detect).
 3. Add environment variables in the Vercel project settings:
-   - `VITE_API_URL` — your live backend API URL (e.g. `https://your-api.com/api`)
-   - `VITE_SITE_URL` — your Vercel domain (e.g. `https://your-app.vercel.app`)
-   - Optional: phone, WhatsApp, email, address, socials (see `.env.example`)
-4. Deploy.
 
-On the backend, set `CLIENT_URL` to your Vercel URL so CORS allows the frontend.
+   **Frontend-only (for now):**
+   - `VITE_USE_MOCK_DATA` = `true`
+   - `VITE_SITE_URL` = your Vercel domain (add after first deploy if needed)
+
+   **Later with backend:**
+   - `VITE_USE_MOCK_DATA` = `false`
+   - `VITE_API_URL` = your live API URL
+   - Set backend `CLIENT_URL` to your Vercel URL
+
+4. Deploy.
 
 You can also deploy from the CLI:
 
