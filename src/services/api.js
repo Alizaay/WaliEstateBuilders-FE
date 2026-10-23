@@ -1,6 +1,7 @@
 import { API_URL, COMPANY, USE_MOCK_DATA, WHATSAPP_URL } from '../config/site';
 import {
   SAMPLE_PROJECTS,
+  SAMPLE_PROPERTIES,
   filterSampleProperties,
   getSamplePropertyById,
 } from '../data/sampleData';
@@ -69,7 +70,6 @@ export const fetchPropertyById = async (id) => {
 export const fetchFilterOptions = async () => {
   if (USE_MOCK_DATA) {
     await delay();
-    const { SAMPLE_PROPERTIES } = await import('../data/sampleData');
     const prices = SAMPLE_PROPERTIES.map((p) => p.price);
     return {
       success: true,
